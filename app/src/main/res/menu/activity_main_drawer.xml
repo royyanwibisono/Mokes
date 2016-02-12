@@ -1,35 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
-        <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-        <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
-    </group>
+    <!--<group android:checkableBehavior="single">-->
+        <!--<item-->
+            <!--android:id="@+id/nav_camera"-->
+            <!--android:icon="@drawable/ic_menu_camera"-->
+            <!--android:title="Import" />-->
+        <!--<item-->
+            <!--android:id="@+id/nav_gallery"-->
+            <!--android:icon="@drawable/ic_menu_gallery"-->
+            <!--android:title="Gallery" />-->
+        <!--<item-->
+            <!--android:id="@+id/nav_slideshow"-->
+            <!--android:icon="@drawable/ic_menu_slideshow"-->
+            <!--android:title="Slideshow" />-->
+        <!--<item-->
+            <!--android:id="@+id/nav_manage"-->
+            <!--android:icon="@drawable/ic_menu_manage"-->
+            <!--android:title="Tools" />-->
+    <!--</group>-->
 
-    <item android:title="Communicate">
+    <item android:title="@string/drawer_menu_main_title">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_main_home"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:title="@string/drawer_menu_main_home" />
+            <item
+                android:id="@+id/nav_main_add_balance"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/drawer_menu_main_add_balance" />
+            <item
+                android:id="@+id/nav_main_transfer"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/drawer_menu_main_transfer" />
+            <item
+                android:id="@+id/nav_main_payment"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/drawer_menu_main_payment" />
+        </menu>
+    </item>
+
+    <item android:title="@string/drawer_menu_account_title">
+        <menu>
+            <item
+                android:id="@+id/nav_account_edit"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/drawer_menu_account_edit" />
+            <item
+                android:id="@+id/nav_account_transaction_history"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/drawer_menu_account_transaction_history" />
+            <item
+                android:id="@+id/nav_account_cash_reward"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/drawer_menu_account_cash_reward" />
+            <item
+                android:id="@+id/nav_account_promo"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/drawer_menu_account_promo" />
+            <item
+                android:id="@+id/nav_account_merchants"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/drawer_menu_account_merchants" />
+            <item
+                android:id="@+id/nav_account_mkios"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/drawer_menu_account_mkios" />
         </menu>
     </item>
 

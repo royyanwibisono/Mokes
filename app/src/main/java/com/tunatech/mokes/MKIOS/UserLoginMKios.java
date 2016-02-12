@@ -1,40 +1,42 @@
-package com.tunatech.mokes.Domain;
+package com.tunatech.mokes.MKIOS;
 
 import android.os.AsyncTask;
-
-import java.io.Serializable;
 
 /**
  * Represents an asynchronous login/registration task used to authenticate
  * the user.
  */
-public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
+public class UserLoginMKios extends AsyncTask<Void, Void, Boolean> {
 
     private boolean isLogedIn;
-    public interface IUserLoginTask {
+    private boolean isUserUnKnown;
+    public interface IUserLoginMKios {
         void OnPostExecute(Boolean success);
         void OnCancelled();
-        void OnUserUnkown(Boolean state);
     }
-    private final String mEmail;
+    private final String mPhone;
     private final String mPassword;
-    private IUserLoginTask AuthTask;
+    private IUserLoginMKios AuthTask;
 
     /**
      * A dummy authentication store containing known user names and passwords.
      * TODO: remove after connecting to a real authentication system.
      */
     private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "foo@example.com:hello", "bar@example.com:world"
+            "123456789:000000", "7778899:111111"
     };
 
-    public UserLoginTask(IUserLoginTask authTask, String email, String password) {
-        AuthTask = (IUserLoginTask)authTask;
-        mEmail = email;
-        mPassword = password;
+    public UserLoginMKios(IUserLoginMKios authTask, String phone, String pin) {
+        AuthTask = (IUserLoginMKios)authTask;
+        mPhone = phone;
+        mPassword = pin;
+        isLogedIn = false;
     }
     public Boolean IsLoggedIn(){
         return isLogedIn;
+    }
+    public Boolean IsUserUnKnown(){
+        return isUserUnKnown;
     }
     @Override
     protected Boolean doInBackground(Void... params) {
@@ -51,8 +53,9 @@ public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
         int count = 0;
         for (String credential : DUMMY_CREDENTIALS) {
             String[] pieces = credential.split(":");
-            if (pieces[0].equals(mEmail)) {
-                AuthTask.OnUserUnkown(false);
+            if (pieces[0].equals(mPhone)) {
+                isUserUnKnown = false;
+
                 // Account exists, return true if the password matches.
                 isLogedIn = pieces[1].equals(mPassword);
                 return isLogedIn;
@@ -61,7 +64,8 @@ public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
         }
 
         if (count > 0 && AuthTask != null){
-            AuthTask.OnUserUnkown(true);
+            isUserUnKnown = true;
+
             return false;
         }
 

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/mkios_ret_stock_msg"
+        android:id="@+id/tv_mkios_credit_tranfer_msg"
+        android:textAlignment="center"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/medium_mrgn"
+        android:layout_marginTop="@dimen/medium_mrgn"
+        android:paddingLeft="@dimen/medium_mrgn"
+        android:paddingRight="@dimen/medium_mrgn"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="2"
+            android:layout_marginBottom="@dimen/medium_mrgn"
+            android:paddingLeft="@dimen/medium_mrgn"
+            android:paddingRight="@dimen/medium_mrgn">
+
+
+            <TextView
+                android:id="@+id/mkios_ret_stock_nominal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/mkios_ret_stock_nominal"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textAlignment="center"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_marginTop="20dp" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorMainRed"/>
+
+            <TextView
+                android:id="@+id/mkios_data_topup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/mkios_dsb_topup_data"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textAlignment="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_marginTop="20dp" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorMainRed"/>
+            <TextView
+                android:id="@+id/mkios_return_stock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/mkios_dsb_return_stock"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textAlignment="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_marginTop="20dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorMainRed"/>
+            <TextView
+                android:id="@+id/mkios_credit_tranfer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/mkios_dsb_credit_transfer"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textAlignment="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_marginTop="20dp" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorMainRed"/>
+            <TextView
+                android:id="@+id/mkios_data_packet_transfer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/mkios_dsb_data_packet_transfer"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textAlignment="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_marginTop="20dp" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorMainRed"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/transfer_asking_add_balance"
+                android:id="@+id/tv_asking_add_balance"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"/>
+
+
+    </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="4"
+            android:layout_marginBottom="@dimen/medium_mrgn"
+            android:paddingLeft="@dimen/medium_mrgn"
+            android:paddingRight="@dimen/medium_mrgn">
+
+
+            <TextView
+                android:id="@+id/mkios_credit_topup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/mkios_dsb_topup_credit"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textAlignment="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_marginTop="20dp" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorMainRed"/>
+
+            <EditText
+                android:id="@+id/mkios_data_topup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:hint="@string/mkios_dsb_topup_data"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textAlignment="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingTop="10dp"
+                android:paddingBottom="8dp"
+                android:layout_marginTop="20dp" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorMainRed"/>
+
+            <TextView
+                android:id="@+id/mkios_return_stock"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/mkios_dsb_return_stock"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textAlignment="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_marginTop="20dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorMainRed"/>
+            <TextView
+                android:id="@+id/mkios_credit_tranfer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/mkios_dsb_credit_transfer"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textAlignment="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_marginTop="20dp" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorMainRed"/>
+            <TextView
+                android:id="@+id/mkios_data_packet_transfer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/mkios_dsb_data_packet_transfer"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textAlignment="center"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_marginTop="20dp" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/colorMainRed"/>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

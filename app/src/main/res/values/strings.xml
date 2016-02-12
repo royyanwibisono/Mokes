@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">Mokes</string>
+    <string name="app_name" translatable="false">Mokes</string>
 
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open" translatable="false">Open navigation drawer</string>
+    <string name="navigation_drawer_close" translatable="false">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
 
-    <string name="prompt_email">Email</string>
+    <string name="prompt_email" translatable="false">Email</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Sign in</string>
     <string name="action_sign_in_short">Sign in</string>
@@ -14,7 +14,113 @@
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
+    <string name="permission_rationale" translatable="false">"Contacts permissions are needed for providing email completions."</string>
     <string name="invalid_user_name">User name is unknown</string>
     <string name="action_register">Register</string>
+    <string name="str_user_name">User Name</string>
+    <string name="str_your_saldo">Your Balance</string>
+    <string name="str_your_mkios_saldo">Your M-KIOS Balance</string>
+    <string name="ctr_add_balance">add balance</string>
+    <string name="ctr_purchase_credit">purchase credit</string>
+    <string name="ctr_transfer" translatable="false">transfer</string>
+    <string name="ctr_payment">payment</string>
+    <string name="enter_email_address">Enter Email Address</string>
+    <string name="back_to_login">Back to login</string>
+    <string name="lbl_btn_send">send</string>
+
+    <string name="form_reg_btn_register">register</string>
+    <string name="form_reg_title">Register New</string>
+    <string name="form_reg_full_name">Full Name</string>
+    <string name="form_reg_user_name">User Name</string>
+    <string name="form_reg_phone_number">Phone Number</string>
+
+
+    <string name="paymnt_msg">Do you want to top up your balance?</string>
+    <string name="paymnt_btn_topup" translatable="false">top up</string>
+    <string name="paymnt_btn_not_now">not now</string>
+
+    <string name="topup_confirm">payment confirmation</string>
+    <string name="topup_msg" translatable="false">Anda dpat mengisi saldo M-Cash Anda melalui ATM Bank manapun,
+        dengan melakukan transfer ke rekening dibawah ini dengan Nilai Saldo yang Anda inginkan
+        sesuai dengan nominal dana yang Anda transfer</string>
+    <string name="topup_bca" translatable="false">BCA</string>
+    <string name="topup_bca_acc_no" translatable="false">365 000 5678</string>
+    <string name="topup_bca_acc_name" translatable="false">a. n. PT Mitra Mediatma Solusindo</string>
+    <string name="topup_mandiri" translatable="false">BANK MANDIRI</string>
+    <string name="topup_topup_mandiri_acc_no" translatable="false">365 000 5678</string>
+    <string name="topup_topup_mandiri_acc_name" translatable="false">a. n. PT Mitra Mediatma Solusindo</string>
+
+    <string name="purch_cr_phone">Enter Phone Number</string>
+    <string name="purch_cr_select_provider">Select Provider</string>
+    <string name="purch_cr_select_credit">Select Credit Nominal</string>
+    <string name="purch_cr_topup_telkomsel">Telkomsel credit Top Up?</string>
+
+    <string name="transfer_msg">You can transfer funds to other M-Cash users</string>
+    <string name="transfer_nominal">Transfer Nominal</string>
+    <string name="transfer_write_msg">Write Message (Optional)</string>
+    <string name="transfer_asking_add_balance">Is Your balance insufficient?</string>
+
+    <string name="confirm_msg">Transaction data confirmation</string>
+    <string name="confirm_bank">Sender Bank</string>
+    <string name="confirm_user_account">User Account</string>
+    <string name="confirm_topup_nominal">Top Up Nominal</string>
+    <string name="confirm_write_msg">Write Message (Optional)</string>
+    <string name="confirm_btn_upload" translatable="false">upload</string>
+    <string name="confirm_asking_upload_pic">Atau \n foto bukti transaksi dan unggah disini</string>
+    <string name="confirm_btn_file">select file...</string>
+
+    <string name="mkios_msg">Enter Your M-Kios ID</string>
+    <string name="mkios_phone_no">User\'s number</string>
+    <string name="mkios_pin" translatable="false">Pin</string>
+
+    <string name="mkios_dsb_topup_credit">Telkomsel Credit Top Up</string>
+    <string name="mkios_dsb_topup_data">Telkomsel Data Top Up</string>
+    <string name="mkios_dsb_return_stock" translatable="false">Return Stock</string>
+    <string name="mkios_dsb_credit_transfer">Credit Transfer</string>
+    <string name="mkios_dsb_data_packet_transfer">Data Packet Transfer</string>
+
+    <array name="provider_dummy">
+        <item>Telkomsel</item>
+        <item>Prov1</item>
+        <item>Prov2</item>
+    </array>
+
+    <array name="nominal_dummy">
+        <item>Telkomsel</item>
+        <item>Prov1</item>
+        <item>Prov2</item>
+    </array>
+
+    <array name="bank_dummy">
+        <item>BCA</item>
+        <item>Mandiri</item>
+        <item>Bank1</item>
+    </array>
+    <string name="mkios_credit_tranfer_msg">You may do credit transfer.Credit transfer facility only available for M-Kios member</string>
+    <string name="mkios_credit_transfer_phone_target">Enter target phone number</string>
+    <string name="mkios_credit_transfer_nominal">Credit Nominal</string>
+    <string name="mkios_credit_transfer_topup_cr_telkomsel">telkomsel credit top up</string>
+    <string name="mkios_credit_transfer_ask_topup_cr_telkomsel">Telkomsel credit Top Up?</string>
+    <string name="mkios_credit_transfer_btn_topup">telkomsel credit top up</string>
+    <string name="mkios_ret_stock_msg">Want to Return Stock? \nPlease select SKU stock and input restocked quantities</string>
+    <string name="mkios_ret_stock_nominal" translatable="false">Nominal</string>
+    <string name="mkios_ret_stock_quantity">Quantity</string>
+    <string name="mkios_ret_stock_sel_nominal">Select Nominal</string>
+    <string name="mkios_ret_stock_btn_process">process</string>
+    <string name="login_static_txt">Forgot your password?</string>
+    <string name="lolgin_static_click_here">Click here</string>
+    <string name="login_static_or">Or login using</string>
+    <string name="drawer_menu_main_title">Main Menu</string>
+    <string name="drawer_menu_main_home" translatable="false">Home</string>
+    <string name="drawer_menu_main_add_balance">Add Balance</string>
+    <string name="drawer_menu_main_transfer" translatable="false">Transfer</string>
+    <string name="drawer_menu_main_payment">Payment</string>
+    <string name="drawer_menu_account_title">Account Menu</string>
+    <string name="drawer_menu_account_edit">Setting Account</string>
+    <string name="drawer_menu_account_transaction_history">Transaction History</string>
+    <string name="drawer_menu_account_cash_reward" translatable="false">Cash Reward</string>
+    <string name="drawer_menu_account_promo" translatable="false">Promo</string>
+    <string name="drawer_menu_account_merchants" translatable="false">Merchants</string>
+    <string name="drawer_menu_account_mkios" translatable="false">M-Kios</string>
+    <string name="error_invalid_input">Invalid Input</string>
 </resources>
