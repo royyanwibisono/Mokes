@@ -34,11 +34,15 @@ public class FragmentLogin extends Fragment {
     public interface IMKiosLogin{
         void MKiosLogin(int result, Intent data);
     }
-    public static FragmentLogin newInstance(){
-        FragmentLogin f = new FragmentLogin();
-        return f;
-    }
 
+    public static FragmentLogin newInstance(String title) {
+
+        Bundle args = new Bundle();
+        args.putString("title",title);
+        FragmentLogin fragment = new FragmentLogin();
+        fragment.setArguments(args);
+        return fragment;
+    }
     public FragmentLogin(){
         Log.d(LoginActivity.TAG, "construct fragment M-Kios Login");
     }

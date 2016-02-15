@@ -4,6 +4,7 @@
     <string name="ctr_payment">pembayaran</string>
     <string name="ctr_purchase_credit">beli pulsa</string>
     <string name="error_field_required">Isian ini diperlukan</string>
+    <string name="error_item_spinner_required">Silahkan pilih 1 item</string>
     <string name="error_incorrect_password">Password ini tidak benar</string>
     <string name="error_invalid_email">Email ini tidak valid</string>
     <string name="error_invalid_password">Password terlalu pendek</string>
@@ -72,4 +73,16 @@
     <string name="drawer_menu_account_edit">Edit Akun</string>
     <string name="drawer_menu_account_transaction_history">Riwayat Transaksi</string>
     <string name="error_invalid_input">Input tidak valid</string>
+    <string name="spinner_select_bank">-- Pilih Bank --</string>
+    <string name="spinner_select_provider">-- Pilih Provider --</string>
+    <string name="spinner_select_nominal">-- Pilih Nominal --</string>
+    <string name="toolbar_title_payment">Pembayaran</string>
+    <string name="mkios_ret_stock_sel_nominal">Pilih Nominal</string>
+    <string name="toolbar_title_information">Informasi</string>
+    <string name="toolbar_title_purch_credit">Beli Pulsa</string>
+    <string name="toolbar_title_transfer">Transfer Saldo</string>
+    <string name="toolbar_title_confirmation">Konfirmasi</string>
+    <string name="toolbar_title_dashboard">Beranda</string>
+    <string name="dialog_msg_transaction_succuess">Transaksi berhasil !</string>
+    <string name="dialog_msg_transaction_fail">Tansaksi gagal !</string>
 </resources>

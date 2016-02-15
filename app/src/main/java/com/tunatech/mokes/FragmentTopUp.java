@@ -18,9 +18,13 @@ public class FragmentTopUp extends Fragment{
 
     private MainActivity mainActivity;
 
-    public static FragmentTopUp newInstance(){
-        FragmentTopUp f = new FragmentTopUp();
-        return f;
+    public static FragmentTopUp newInstance(String title) {
+
+        Bundle args = new Bundle();
+        args.putString("title",title);
+        FragmentTopUp fragment = new FragmentTopUp();
+        fragment.setArguments(args);
+        return fragment;
     }
 
     public FragmentTopUp(){

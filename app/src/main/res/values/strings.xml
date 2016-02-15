@@ -14,6 +14,7 @@
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
+    <string name="error_item_spinner_required">Please select an item</string>
     <string name="permission_rationale" translatable="false">"Contacts permissions are needed for providing email completions."</string>
     <string name="invalid_user_name">User name is unknown</string>
     <string name="action_register">Register</string>
@@ -66,7 +67,7 @@
     <string name="confirm_topup_nominal">Top Up Nominal</string>
     <string name="confirm_write_msg">Write Message (Optional)</string>
     <string name="confirm_btn_upload" translatable="false">upload</string>
-    <string name="confirm_asking_upload_pic">Atau \n foto bukti transaksi dan unggah disini</string>
+    <string name="confirm_asking_upload_pic">Or \n upload the transaction token/proof picture here</string>
     <string name="confirm_btn_file">select file...</string>
 
     <string name="mkios_msg">Enter Your M-Kios ID</string>
@@ -79,23 +80,6 @@
     <string name="mkios_dsb_credit_transfer">Credit Transfer</string>
     <string name="mkios_dsb_data_packet_transfer">Data Packet Transfer</string>
 
-    <array name="provider_dummy">
-        <item>Telkomsel</item>
-        <item>Prov1</item>
-        <item>Prov2</item>
-    </array>
-
-    <array name="nominal_dummy">
-        <item>Telkomsel</item>
-        <item>Prov1</item>
-        <item>Prov2</item>
-    </array>
-
-    <array name="bank_dummy">
-        <item>BCA</item>
-        <item>Mandiri</item>
-        <item>Bank1</item>
-    </array>
     <string name="mkios_credit_tranfer_msg">You may do credit transfer.Credit transfer facility only available for M-Kios member</string>
     <string name="mkios_credit_transfer_phone_target">Enter target phone number</string>
     <string name="mkios_credit_transfer_nominal">Credit Nominal</string>
@@ -123,4 +107,17 @@
     <string name="drawer_menu_account_merchants" translatable="false">Merchants</string>
     <string name="drawer_menu_account_mkios" translatable="false">M-Kios</string>
     <string name="error_invalid_input">Invalid Input</string>
+    <string name="spinner_select_bank">-- Select Bank --</string>
+    <string name="spinner_select_provider">-- Select Provider --</string>
+    <string name="spinner_select_nominal">-- Select Nominal --</string>
+    <string name="toolbar_title_home" translatable="false">Home</string>
+    <string name="toolbar_title_payment">Payment</string>
+    <string name="toolbar_title_information">Information</string>
+    <string name="toolbar_title_purch_credit">Purchase Credit</string>
+    <string name="toolbar_title_transfer">Credit Transfer</string>
+    <string name="toolbar_title_confirmation">Confirmation</string>
+    <string name="toolbar_title_mkios" translatable="false">M-Kios</string>
+    <string name="toolbar_title_dashboard">Dashboard</string>
+    <string name="dialog_msg_transaction_succuess">Transaction success !</string>
+    <string name="dialog_msg_transaction_fail">Transaction fail !</string>
 </resources>

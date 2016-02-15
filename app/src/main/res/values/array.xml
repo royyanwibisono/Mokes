@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="provider_dummy">
+        <item>@string/spinner_select_provider</item>
+        <item>Telkomsel</item>
+        <item>Prov1</item>
+        <item>Prov2</item>
+    </array>
+
+    <array name="nominal_dummy">
+        <item>@string/spinner_select_nominal</item>
+        <item>50 ribu</item>
+        <item>20 ribu</item>
+        <item>10 ribu</item>
+        <item>5 ribu</item>
+    </array>
+
+    <array name="bank_dummy">
+        <item>@string/spinner_select_bank</item>
+        <item>BCA</item>
+        <item>Mandiri</item>
+        <item>Bank1</item>
+    </array>
+
+</resources>

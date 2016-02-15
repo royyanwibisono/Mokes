@@ -21,9 +21,13 @@ public class FragmentTransfer extends Fragment {
     private EditText etEmail,etNominal,etMessage;
     private MainActivity mainActivity;
 
-    public static FragmentTransfer newInstance(){
-        FragmentTransfer f = new FragmentTransfer();
-        return f;
+    public static FragmentTransfer newInstance(String title) {
+
+        Bundle args = new Bundle();
+        args.putString("title",title);
+        FragmentTransfer fragment = new FragmentTransfer();
+        fragment.setArguments(args);
+        return fragment;
     }
 
     public FragmentTransfer(){
@@ -74,7 +78,7 @@ public class FragmentTransfer extends Fragment {
         View focusView = null;
         for(EditText item : etarry) {
             String input_data = item.getText().toString();
-            if (TextUtils.isEmpty(input_data)){
+            if (TextUtils.isEmpty(input_data) && item != etMessage){
                 cancel = true;
                 item.setError(getString(R.string.error_field_required));
                 focusView = item;

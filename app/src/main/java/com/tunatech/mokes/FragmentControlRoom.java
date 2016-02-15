@@ -18,9 +18,14 @@ import android.widget.Toast;
 public class FragmentControlRoom extends Fragment {
 
     private MainActivity mainActivity;
-    public static FragmentControlRoom newInstance(){
-        FragmentControlRoom f = new FragmentControlRoom();
-        return f;
+
+    public static FragmentControlRoom newInstance(String title) {
+
+        Bundle args = new Bundle();
+        args.putString("title",title);
+        FragmentControlRoom fragment = new FragmentControlRoom();
+        fragment.setArguments(args);
+        return fragment;
     }
 
     public FragmentControlRoom(){

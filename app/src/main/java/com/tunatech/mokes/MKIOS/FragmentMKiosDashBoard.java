@@ -17,9 +17,13 @@ import com.tunatech.mokes.R;
  * Created by royyan on 2/11/2016.
  */
 public class FragmentMKiosDashBoard extends Fragment {
-    public static FragmentMKiosDashBoard newInstance(){
-        FragmentMKiosDashBoard f = new FragmentMKiosDashBoard();
-        return f;
+    public static FragmentMKiosDashBoard newInstance(String title) {
+
+        Bundle args = new Bundle();
+        args.putString("title", title);
+        FragmentMKiosDashBoard fragment = new FragmentMKiosDashBoard();
+        fragment.setArguments(args);
+        return fragment;
     }
 
     public FragmentMKiosDashBoard(){

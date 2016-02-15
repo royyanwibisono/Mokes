@@ -22,7 +22,7 @@
 
     <Spinner
         android:id="@+id/confirm_select_bank"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:entries="@array/bank_dummy"
         android:spinnerMode="dialog"
@@ -50,7 +50,7 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:id="@+id/transfer_nominal"
+            android:id="@+id/confirm_nominal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/transfer_nominal"
@@ -92,7 +92,7 @@
         android:id="@+id/tv_asking_upload_pic"
         android:layout_gravity="center_horizontal"
         android:textAlignment="center"
-        android:layout_marginTop="10dp"/>
+        android:gravity="center" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

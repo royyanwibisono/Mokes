@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/purch_cr_phone"
             android:inputType="phone"
-            android:imeOptions="actionNext"
+            android:imeOptions="actionDone"
             android:maxLines="1"
             android:singleLine="true" />
 
@@ -23,7 +23,7 @@
 
     <Spinner
         android:id="@+id/purch_cr_select_provider"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:entries="@array/provider_dummy"
         android:spinnerMode="dialog"
@@ -31,7 +31,7 @@
         android:layout_gravity="bottom"/>
     <Spinner
         android:id="@+id/purch_cr_select_nominal"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:entries="@array/nominal_dummy"
         android:spinnerMode="dialog"

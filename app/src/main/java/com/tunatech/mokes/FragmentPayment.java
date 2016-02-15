@@ -17,11 +17,15 @@ import android.widget.Toast;
 public class FragmentPayment extends Fragment {
 
     private MainActivity mainActivity;
-    public static FragmentPayment newInstance(){
-        FragmentPayment f = new FragmentPayment();
-        return f;
-    }
 
+    public static FragmentPayment newInstance(String title) {
+
+        Bundle args = new Bundle();
+        args.putString("title",title);
+        FragmentPayment fragment = new FragmentPayment();
+        fragment.setArguments(args);
+        return fragment;
+    }
     public FragmentPayment(){
         Log.d(LoginActivity.TAG, "construct fragment payment");
     }

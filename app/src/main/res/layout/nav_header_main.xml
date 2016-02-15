@@ -26,7 +26,7 @@
         android:layout_marginLeft="20dp">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/drawer_header_static_txt_balance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/nav_header_vertical_spacing"
@@ -35,6 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Rp 0,-"
+            android:id="@+id/drawer_header_user_balance"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     </LinearLayout>

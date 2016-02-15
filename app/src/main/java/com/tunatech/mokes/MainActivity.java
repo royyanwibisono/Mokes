@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tunatech.mokes.Domain.Authentication;
@@ -20,20 +21,27 @@ import com.tunatech.mokes.MKIOS.FragmentLogin;
 import com.tunatech.mokes.MKIOS.FragmentMKiosDashBoard;
 import com.tunatech.mokes.MKIOS.UserLoginMKios;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,FragmentLogin.IMKiosLogin,UserLoginMKios.IUserLoginMKios {
 
     private Authentication UserBridge;
     private FragmentUser fragmentUser;
-    //private FragmentControlRoom controlRoom;
+    private TextView tvTitleBalance,tvTheBalance;
+    private Toolbar toolbar;
+
     private Fragment Misc;
+    private List<String> navHistory;
     private UserLoginMKios MKiosAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.toolbar_title_home);
         setSupportActionBar(toolbar);
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -66,6 +74,9 @@ public class MainActivity extends AppCompatActivity
             setupFragmentUser();
             setupFragmentControlRoom();
         }
+
+        tvTitleBalance = (TextView) navigationView.getHeaderView(0).findViewById(R.id.drawer_header_static_txt_balance);
+        tvTheBalance = (TextView) navigationView.getHeaderView(0).findViewById(R.id.drawer_header_user_balance);
     }
 
     @Override
@@ -76,6 +87,41 @@ public class MainActivity extends AppCompatActivity
         }
         else if(Misc != null && (Misc instanceof FragmentLogin)){
             MKiosLogin(RESULT_CANCELED, null);
+        }
+        else if (navHistory != null && navHistory.size()>=2){
+            int count = navHistory.size();
+            String title = navHistory.get(count-2);
+            navHistory.remove(count-1);
+            navHistory.remove(count-2);
+
+            if (title.contains(getString(R.string.toolbar_title_home))) {
+                setupFragmentUser();
+                setupFragmentControlRoom();
+            }else if(title.contains(getString(R.string.toolbar_title_mkios))){
+                goMKios();
+            }else if(title.contains(getString(R.string.toolbar_title_confirmation))){
+                setupFragmentUser();
+                setupFragmentConfirmation();
+            }else if(title.contains(getString(R.string.toolbar_title_dashboard))){
+                goMKios();
+            }else if(title.contains(getString(R.string.toolbar_title_payment))) {
+                setupFragmentUser();
+                setupFragmentPayment();
+            }else if(title.contains(getString(R.string.toolbar_title_purch_credit))) {
+                setupFragmentUser();
+                setupFragmentPurchaseCredit();
+            }
+            else if(title.contains(getString(R.string.toolbar_title_transfer))) {
+                setupFragmentUser();
+                setupFragmentTransfer();
+            }
+            else if(title.contains(getString(R.string.toolbar_title_information))) {
+                setupFragmentUser();
+                setupFragmentTopUp();
+            }
+            else{
+                super.onBackPressed();
+            }
         }
         else if(Misc != null && !(Misc instanceof FragmentControlRoom)){
             setupFragmentUser();
@@ -146,15 +192,7 @@ public class MainActivity extends AppCompatActivity
             Toast.makeText(this, getString(R.string.drawer_menu_account_merchants),Toast.LENGTH_SHORT).show();
         }
         else if (id == R.id.nav_account_mkios) {
-           if (MKiosAuth != null && MKiosAuth.IsLoggedIn()){
-               setupFragmentUser();
-               setupFragmentMKios();
-           }
-            else{
-
-               Log.d(LoginActivity.TAG, "M-Kios attempt login...");
-               setupFragmentMKiosLogin();
-           }
+            goMKios();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -162,12 +200,40 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
+    private void goMKios(){
+        if (MKiosAuth != null && MKiosAuth.IsLoggedIn()){
+            setupFragmentUser();
+            setupFragmentMKios();
+        }
+        else{
+            Log.d(LoginActivity.TAG, "M-Kios attempt login...");
+            setupFragmentMKiosLogin();
+        }
+    }
     private void setupFragMainAfterFiltering(Fragment fragToShow){
+
         Log.d(LoginActivity.TAG, "Attaching Fragment...");
+        String title = fragToShow.getArguments().getString("title");
+        toolbar.setTitle(title);
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.main_item_detail_container, fragToShow)
                 .commit();
         Log.d(LoginActivity.TAG, "Attached Fragment");
+
+        if (navHistory != null && title != getString(R.string.toolbar_title_mkios)){
+            navHistory.add(title);
+        }
+    }
+
+    public void cmdUploadConfirmation(int result, Intent data){
+        if (result == RESULT_OK) {
+            String bank = data.getStringExtra(String.valueOf(R.id.confirm_select_bank));
+            String userTarget = data.getStringExtra(String.valueOf(R.id.confirm_user_account_target));
+            String nominal = data.getStringExtra(String.valueOf(R.id.confirm_nominal));
+            String msg = data.getStringExtra(String.valueOf(R.id.confirm_write_msg));
+
+            Toast.makeText(this, bank+","+userTarget + "," + nominal + ", " + msg + ", Loading...", Toast.LENGTH_LONG).show();
+        }
     }
 
     public void cmdTransferCredit(int result, Intent data){
@@ -176,16 +242,19 @@ public class MainActivity extends AppCompatActivity
             String nominal = data.getStringExtra(String.valueOf(R.id.transfer_nominal));
             String msg = data.getStringExtra(String.valueOf(R.id.transfer_write_msg));
 
-            Toast.makeText(this, emailTarget + "," + nominal + ", " + msg + ", Loading...", Toast.LENGTH_LONG).show();
+            //Toast.makeText(this, emailTarget + "," + nominal + ", " + msg + ", Loading...", Toast.LENGTH_LONG).show();
+            DialogTuna cdd = new DialogTuna(this, getString(R.string.dialog_msg_transaction_succuess));
+            //cdd.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+            cdd.show();
         }
     }
-    public void cmdPuchaseCredit(int result, Intent data){
+    public void cmdPurchaseCredit(int result, Intent data){
         if (result == RESULT_OK) {
-            String emailTarget = data.getStringExtra(String.valueOf(R.id.purch_cr_phone));
-            String nominal = data.getStringExtra(String.valueOf(R.id.transfer_nominal));
-            String msg = data.getStringExtra(String.valueOf(R.id.transfer_write_msg));
+            String phone = data.getStringExtra(String.valueOf(R.id.purch_cr_phone));
+            String provider = data.getStringExtra(String.valueOf(R.id.purch_cr_select_provider));
+            String nominal = data.getStringExtra(String.valueOf(R.id.purch_cr_select_nominal));
 
-            Toast.makeText(this, emailTarget + "," + nominal + ", " + msg + ", Loading...", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, phone + "," + provider + ", " + nominal + ", Loading...", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -193,7 +262,7 @@ public class MainActivity extends AppCompatActivity
         View fu = (View) findViewById(R.id.user_item_detail_container);
         fu.setVisibility(View.GONE);
         if (Misc == null || !(Misc instanceof FragmentLogin)) {
-            Misc = FragmentLogin.newInstance();
+            Misc = FragmentLogin.newInstance(getString(R.string.toolbar_title_mkios));
         }
         setupFragMainAfterFiltering(Misc);
     }
@@ -201,7 +270,7 @@ public class MainActivity extends AppCompatActivity
     public void setupFragmentMKios() {
         if (MKiosAuth != null && MKiosAuth.IsLoggedIn()) {
             if (Misc == null || !(Misc instanceof FragmentMKiosDashBoard)) {
-                Misc = FragmentMKiosDashBoard.newInstance();
+                Misc = FragmentMKiosDashBoard.newInstance(getString(R.string.toolbar_title_dashboard));
             }
             setupFragMainAfterFiltering(Misc);
         }
@@ -209,40 +278,42 @@ public class MainActivity extends AppCompatActivity
 
     public void setupFragmentConfirmation() {
         if (Misc == null || !(Misc instanceof FragmentConfirmation)) {
-            Misc = FragmentConfirmation.newInstance();
+            Misc = FragmentConfirmation.newInstance(getString(R.string.toolbar_title_confirmation));
         }
         setupFragMainAfterFiltering(Misc);
     }
     public void setupFragmentPayment() {
         if (Misc == null || !(Misc instanceof FragmentPayment)) {
-            Misc = FragmentPayment.newInstance();
+            Misc = FragmentPayment.newInstance(getString(R.string.toolbar_title_payment));
         }
         setupFragMainAfterFiltering(Misc);
     }
 
     public void setupFragmentPurchaseCredit() {
         if (Misc == null || !(Misc instanceof FragmentPurchaseCredit)) {
-            Misc = FragmentPurchaseCredit.newInstance();
+            Misc = FragmentPurchaseCredit.newInstance(getString(R.string.toolbar_title_purch_credit));
         }
         setupFragMainAfterFiltering(Misc);
     }
 
     public void setupFragmentTransfer() {
         if (Misc == null || !(Misc instanceof FragmentTransfer)) {
-            Misc = FragmentTransfer.newInstance();
+            Misc = FragmentTransfer.newInstance(getString(R.string.toolbar_title_transfer));
         }
         setupFragMainAfterFiltering(Misc);
     }
     public void setupFragmentControlRoom() {
         if (Misc == null || !(Misc instanceof FragmentControlRoom)) {
-            Misc = FragmentControlRoom.newInstance();
+            Misc = FragmentControlRoom.newInstance(getString(R.string.toolbar_title_home));
         }
+
+        navHistory = new ArrayList<String>();
         setupFragMainAfterFiltering(Misc);
     }
 
     public void setupFragmentTopUp(){
         if (Misc == null || !(Misc instanceof FragmentTopUp)) {
-            Misc = FragmentTopUp.newInstance();
+            Misc = FragmentTopUp.newInstance(getString(R.string.toolbar_title_information));
         }
         setupFragMainAfterFiltering(Misc);
     }
@@ -262,6 +333,8 @@ public class MainActivity extends AppCompatActivity
         if(fragmentUser != null && UserBridge!= null) {
             fragmentUser.SetUserName(UserBridge.get_username());
             fragmentUser.SetSaldo(UserBridge.get_saldo());
+
+            tvTheBalance.setText(UserBridge.get_saldo());
         }
     }
 
